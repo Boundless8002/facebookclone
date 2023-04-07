@@ -1,0 +1,40 @@
+.widget{
+    margin-top: 30px;
+    margin-right:10px;
+    height:100vh;
+    position: sticky;
+    top:0;
+    flex:.33;
+    
+}
+.widget_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.widget_bodyOptions{
+ display: flex;
+ align-items:center;
+ margin-bottom:20px;
+}
+.widget_bodyOptions h4{
+    margin-left:10px;
+    font-size:12px;
+}
+.ml10{
+    margin-left:10px;
+}
+.ml10 p{
+    font-size: 12px;
+    color:gray;
+}
+.widget_bodyOptions .MuiAvatar-root{
+    height:20px;
+    width:20px;
+    margin-right:4px;
+}
+.widget_headerRight svg{
+    margin:0 10px;
+}
