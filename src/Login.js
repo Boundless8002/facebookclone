@@ -28,10 +28,10 @@ function Login() {
         <div className="login">
         <h2 style={{color:'blue'}}>facebook</h2>
       <h3>Sign in with facebook</h3>
-      <form>
-      <input  class="loginid" type="text" placeholder="Enter email" required/><br/>
-      <input  class="loginid" type="password" placeholder="password" required/>
-      </form>
+      // <form>
+      // <input  class="loginid" type="text" placeholder="Enter email" required/><br/>
+      // <input  class="loginid" type="password" placeholder="password" required/>
+      // </form>
       <button onClick={signIn}>Login with facebook</button>
       </div>
     </div>
