@@ -87,3 +87,19 @@ position: relative;
     background-color: whitesmoke;
     color:#000;
 }
+.dropdown{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: sticky;
+    
+    
+}
+.logout{
+  
+    position: relative;
+    display:flex;
+   
+  font-size:small;
+  color:blue;
+}
