@@ -62,7 +62,7 @@ setProgress(progress);
     alert(error.message);
   },
   ()=>{
-    storage.ref("image").child(image.name).getDownloadURL().then(url=>{
+    storage.ref("images").child(image.name).getDownloadURL().then(url=>{
       db.collection("posts").add({
         timestamp:firebase.firestore.FieldValue.serverTimestamp(),
         message:message,
@@ -77,8 +77,8 @@ setProgress(progress);
   }
   handleClose();
   setMessage("");
-  setImage(null);
-  setProgress(0);
+  setImage("");
+  setProgress();
 }
   return (
     <>
