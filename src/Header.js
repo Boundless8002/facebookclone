@@ -5,7 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import GroupIcon from '@mui/icons-material/Group';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import { Avatar } from '@mui/material';
+import { Avatar, Link } from '@mui/material';
 import AppsIcon from '@mui/icons-material/Apps';
 import ForumIcon from '@mui/icons-material/Forum';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -13,59 +13,74 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { IconButton } from '@mui/material';
 import { useStateValue } from './StateProvider';
+import { useState } from "react";
 
 
 function Header() {
 
-  const [{user},dispatch]=useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+  const [showlogout, setShowlogout] = useState(false);
+
+  const handlelogout = (prev) => {
+    setShowlogout(prev => !prev)
+  }
+
+  // const logout = () => {
+  //   //alert("logout")
+
+  // }
+
   return (
     <div className="header">
       <div className="header_left">
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW85T8UsOcToeMn8ML4IUSJTuMrOiYMkozNTeiQj6SRw&s"/>
-      
-      <div className="header_search">
-      <SearchIcon/>
-      <input type="text" placeholder="Search Facebook"/>
-      </div></div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW85T8UsOcToeMn8ML4IUSJTuMrOiYMkozNTeiQj6SRw&s" />
+
+        <div className="header_search">
+          <SearchIcon />
+          <input type="text" placeholder="Search Facebook" />
+        </div></div>
       <div className="header_middle">
         <div className="header_option header_option--active">
-        <HomeIcon fontSize="large"/>
+          <HomeIcon fontSize="large" />
         </div>
         <div className="header_option">
-        <OndemandVideoIcon fontSize="large"/>
+          <OndemandVideoIcon fontSize="large" />
         </div>
         <div className="header_option ">
-        <GroupIcon fontSize="large"/>
+          <GroupIcon fontSize="large" />
         </div>
         <div className="header_option">
-        <SportsEsportsIcon fontSize="large"/>
+          <SportsEsportsIcon fontSize="large" />
         </div>
 
-        
-        
+
+
       </div>
       <div className="header_right">
         <div className="header_info">
-          <Avatar src={user.photoURL}/>
+          <Avatar src={user.photoURL} />
           <h5>{user.displayName}</h5>
         </div>
-       {/* Icon button to show hover effect */}
+        {/* Icon button to show hover effect */}
         <IconButton>
-        <AppsIcon/>
+          <AppsIcon />
         </IconButton>
         <IconButton>
-        <ForumIcon/>
+          <ForumIcon />
         </IconButton>
         <IconButton>
-        <NotificationsIcon/>
+          <NotificationsIcon />
         </IconButton>
-        <IconButton>
-        <KeyboardArrowDownIcon/>
+        <IconButton className="dropdown">
+          <KeyboardArrowDownIcon onClick={handlelogout} />{
+            showlogout && <p className="logout" onClick={() => dispatch({ type: "LOGOUT" })}>Logout</p>
+          }
+
         </IconButton>
       </div>
-     
+
     </div>
   )
 }
 
-export default Header ;
+export default Header;
